@@ -14,10 +14,7 @@ const cookieSession = require("cookie-session")
 const passport = require("passport");
 const bodyParser=require("body-parser");
 const passportSetup = require("./passport");
-<<<<<<< HEAD
-const authRoute = require("./Routes/authh");
-=======
->>>>>>> 8646b71 (hh)
+
 
 
 app.use(
