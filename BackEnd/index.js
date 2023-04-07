@@ -13,7 +13,7 @@ const cookieSession = require("cookie-session")
 const passport = require("passport");
 const bodyParser=require("body-parser");
 const passportSetup = require("./passport");
-const authRoute = require("./routes/authh");
+const authRoute = require("./Routes/authh");
 
 
 app.use(
