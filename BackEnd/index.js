@@ -45,7 +45,6 @@ app.use("/api/auth" ,authroute)
 app.use("/api/users" ,usersroute)
 app.use("/api/review" ,reviewroute)
 app.use("/api" ,postsroute)
-app.use("/api" ,contactroute)
 
 
 

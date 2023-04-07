@@ -34,7 +34,7 @@ router.get("/logout", (req, res) => {
 router.get("/github", passport.authenticate("github", { scope: ["profile"] }));
 
 router.get(
-  "/api/auth/github/callback",
+  "/github/callback",
   passport.authenticate("github", {
     successRedirect: CLIENT_URL,
     failureRedirect: "/login/failed",
