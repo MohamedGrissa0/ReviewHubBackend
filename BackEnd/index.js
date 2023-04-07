@@ -7,13 +7,13 @@ const app = express()
 const mongoose = require ("mongoose")
 const authroute = require("./Routes/auth")
 const usersroute = require("./Routes/users")
-const reviewroute = require("./Routes/Review")
+const reviewroute = require("./Routes/review")
 const postsroute = require("./Routes/posts")
+const contactroute = require("./Routes/contact")
 const cookieSession = require("cookie-session")
 const passport = require("passport");
 const bodyParser=require("body-parser");
 const passportSetup = require("./passport");
-
 
 
 app.use(
@@ -31,7 +31,7 @@ app.use(
   })
 );
 
-
+app.use("/api/auth" ,authroute)
   
 
 
@@ -41,10 +41,10 @@ app.use(bodyParser.urlencoded({
   }));
   app.use("/uploads", express.static("../../Dashboard/backend/uploads"));
 mongoose.connect(process.env.MONGO_URL).then(console.log("DATABASE CONNECTED")).catch(err => {console.log(err)})
-app.use("/api/auth" ,authroute)
 app.use("/api/users" ,usersroute)
 app.use("/api/review" ,reviewroute)
 app.use("/api" ,postsroute)
+app.use("/api" ,contactroute)
 
 
 

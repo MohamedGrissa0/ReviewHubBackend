@@ -37,9 +37,10 @@ router.get(
   "/github/callback",
   passport.authenticate("github", {
     successRedirect: CLIENT_URL,
-    failureRedirect: "/login/failed",
+    failureRedirect: "/api/auth/login/failed",
   })
 );
+
 
 router.get("/facebook", passport.authenticate("facebook", { scope: ["profile"] }));
 
@@ -50,6 +51,11 @@ router.get(
     failureRedirect: "/login/failed",
   })
 );
+
+
+
+
+
 //REGISTER
 router.post("/register",async (req,res)=> {
   try {
