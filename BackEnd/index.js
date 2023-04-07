@@ -9,7 +9,6 @@ const authroute = require("./Routes/auth")
 const usersroute = require("./Routes/users")
 const reviewroute = require("./Routes/review")
 const postsroute = require("./Routes/posts")
-const contactroute = require("./Routes/contact")
 const cookieSession = require("cookie-session")
 const passport = require("passport");
 const bodyParser=require("body-parser");
