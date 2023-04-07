@@ -3,7 +3,7 @@ const passport = require("passport");
 const FacebookStrategy = require("passport-facebook").Strategy;
 
 GITHUB_CLIENT_ID = "68306d9b6d38d6979e04";
-GITHUB_CLIENT_SECRET = "df85f68d15b2c64a01918218b8092d132440c939";
+GITHUB_CLIENT_SECRET = "562e94a5d0ffac4cbab71d5605ec0c482cceb2ee";
 
 FACEBOOK_APP_ID = "232417256006953";
 FACEBOOK_APP_SECRET = "0fafbc8f9e12ccfa47ed633ec0860c10";
