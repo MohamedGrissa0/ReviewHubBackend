@@ -9,11 +9,15 @@ const authroute = require("./Routes/auth")
 const usersroute = require("./Routes/users")
 const reviewroute = require("./Routes/Review")
 const postsroute = require("./Routes/posts")
+const contactroute = require("./Routes/contact")
 const cookieSession = require("cookie-session")
 const passport = require("passport");
 const bodyParser=require("body-parser");
 const passportSetup = require("./passport");
+<<<<<<< HEAD
 const authRoute = require("./Routes/authh");
+=======
+>>>>>>> 8646b71 (hh)
 
 
 app.use(
@@ -31,7 +35,6 @@ app.use(
   })
 );
 
-app.use("/authh", authRoute);
 
   
 
@@ -46,6 +49,7 @@ app.use("/api/auth" ,authroute)
 app.use("/api/users" ,usersroute)
 app.use("/api/review" ,reviewroute)
 app.use("/api" ,postsroute)
+app.use("/api" ,contactroute)
 
 
 
