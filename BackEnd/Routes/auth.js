@@ -8,6 +8,7 @@ const CLIENT_URL = "http://localhost:3000/";
 
 router.get("/login/success", (req, res) => {
   if (req.user) {
+    console.log(req.user); // Add this line to log the user info to the console
     res.status(200).json({
       success: true,
       message: "successfull",
