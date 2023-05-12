@@ -13,7 +13,7 @@ const PersonSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        profilepic:
+        profilePicture:
         {
             type: String,
 
@@ -29,7 +29,7 @@ const PersonSchema = new mongoose.Schema(
         address:
         {
             type: String,
-        }, number:
+        }, phone:
         {
             type: String,
         }, zip:
@@ -39,7 +39,10 @@ const PersonSchema = new mongoose.Schema(
         {
             type: String,
         },
-       
+        age : {
+        type:String
+        }
+       ,
         token:
         {
             type: String,

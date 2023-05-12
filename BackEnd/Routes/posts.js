@@ -11,7 +11,7 @@ router.get("/category/:id", async (req, res) => {
     console.log(err);
     res.status(500).json({ message: "Error retrieving posts", error: err });
   }
-});
+}); 
 router.get("/toprated/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -32,7 +32,6 @@ router.get("/search", async (req, res) => {
     const searchres = await Post.find({
       $or: [
         { title: { $regex: `.*${q}.*`, $options: "i" } },
-        { description: { $regex: `.*${q}.*`, $options: "i" } },
         { locationString: { $regex: `.*${q}.*`, $options: "i" } },
       
       ],

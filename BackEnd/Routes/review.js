@@ -42,6 +42,9 @@ router.post('/:postId', async (req, res) => {
         username: req.body.username,
         rate: req.body.rate,
         comments: req.body.comments,
+        like: 0,
+        dislike:0
+
       });
 
       const updatedPost = await post.save();
@@ -52,6 +55,58 @@ router.post('/:postId', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send('Server error');
+  }
+});
+
+router.put('/:id/:reviewId/like', async (req, res) => {
+  const postId = req.params.id;
+  const reviewId = req.params.reviewId;
+  const userId = req.body.personId; // assuming you're using JWT authentication and have access to the user ID
+  
+  try {
+    const post = await Post.findById(postId);
+    const review = post.REVIEWS.find(r => r._id.equals(reviewId));
+    if (!review.likes.includes(userId) && !review.dislikes.includes(userId)) {
+      review.likes.push(userId);
+      await post.save();
+    }
+    else if (!review.likes.includes(userId) && review.dislikes.includes(userId)) {
+      review.dislikes = review.dislikes.filter((item)=> (item!==userId));
+      review.likes.push(userId);
+
+      await post.save();
+    }
+
+    res.status(200).json(post);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+router.put('/:id/:reviewId/dislike', async (req, res) => {
+  const postId = req.params.id;
+  const reviewId = req.params.reviewId;
+  const userId = req.body.personId; // assuming you're using JWT authentication and have access to the user ID
+  
+  try {
+    const post = await Post.findById(postId);
+    const review = post.REVIEWS.find(r => r._id.equals(reviewId));
+    if (!review.dislikes.includes(userId) && !review.likes.includes(userId)) {
+      review.dislikes.push(userId);
+      await post.save();
+    }
+    else if (review.likes.includes(userId) && !review.dislikes.includes(userId)) {
+      review.likes = review.likes.filter((item)=> (item!==userId));
+     
+      review.dislikes.push(userId);
+      await post.save();
+    }
+
+    res.status(200).json(post);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
   }
 });
 
