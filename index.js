@@ -10,11 +10,8 @@ const usersroute = require("./Routes/users")
 const reviewroute = require("./Routes/Review")
 const postsroute = require("./Routes/posts")
 const contactroute = require("./Routes/contact")
-const dialogflowroute = require("./Routes/dialogflow")
 const cookieSession = require("cookie-session")
-const passport = require("passport");
 const bodyParser=require("body-parser");
-const passportSetup = require("./passport");
 
 app.use(
   cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
